@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/avisos', function (){
+    return view('avisos', ['nome' => 'Rossi', 'mostrar' => true,
+                'avisos' =>[['id'=> 1, 'aviso' => 'Inicio da aula'],
+                            ['id'=> 2, 'aviso' => 'Intervalo'],
+                            ['id'=> 3, 'aviso' => 'Final da aula']
+                        ]]);
+});
+
+Route::get('/index', function () {
+    return view('index', ['carousel' => true]);
+
+});
+
+
