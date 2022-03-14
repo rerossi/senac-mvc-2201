@@ -26,7 +26,8 @@ Route::get('/avisos', function (){
 });
 
 Route::get('/index', function () {
-    return view('index', ['carousel' => true]);
+    return view('index', ['carousel' => true,
+                'forms' => ['', '', '']]);
 
 });
 

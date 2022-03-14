@@ -8,6 +8,7 @@
 @section('content')
 
 @if ($carousel)
+<br><br>
 
 <h3>Perguntas Frequentes</h3>
 <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -52,6 +53,21 @@
     <div></div>
 
     @endif
+    <br><br>
+
+    <h4>Fomulário de contato</h4>
+
+    <div class="mb-3">
+        @foreach($forms as $form)
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        @endforeach
+
+      </div>
+
+
+
+
 
     @endsection
 
