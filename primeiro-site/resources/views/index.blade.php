@@ -59,8 +59,8 @@
 
     <div class="mb-3">
         @foreach($forms as $form)
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <label for="exampleFormControlInput1" class="form-label">{{$form}}</label>
+        <input type="texto" class="form-control" id="exampleFormControlInput1" name="{{$form}}" placeholder="name@example.com">
         @endforeach
 
       </div>

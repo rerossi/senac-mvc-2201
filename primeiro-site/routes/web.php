@@ -18,8 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/avisos', function (){
-    return view('avisos', ['nome' => 'Rossi', 'mostrar' => true,
-                'avisos' =>[['id'=> 1, 'aviso' => 'Inicio da aula'],
+    return view('avisos', ['nome' => 'Clientes', 'mostrar' => true,
+                'avisos' =>[['id'=> 1, 'cliente' => 'Rodrigo Rossi'],
                             ['id'=> 2, 'aviso' => 'Intervalo'],
                             ['id'=> 3, 'aviso' => 'Final da aula']
                         ]]);
@@ -27,8 +27,19 @@ Route::get('/avisos', function (){
 
 Route::get('/index', function () {
     return view('index', ['carousel' => true,
-                'forms' => ['', '', '']]);
+                'forms' => ['nome', 'sobrenome', 'cidade']]);
 
 });
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('clientes')->group(function(){
+
+    Route::get('listar', [App\Http\Controllers\ClientesController::class, 'listar'])->middleware('auth');
+});
+
 
 
