@@ -42,8 +42,8 @@ Route::prefix('clientes')->group(function(){
 });
 
 Route::group(['middleware' => ['auth']], function(){
-    Route::resource('/users', App\Http\Controller\UserController::class);
-    Route::resource('/roles', App\Http\Controller\RoleController::class);
+    Route::resource('/users', App\Http\Controllers\UserController::class);
+    Route::resource('/roles', App\Http\Controllers\RoleController::class);
 
 });
 
