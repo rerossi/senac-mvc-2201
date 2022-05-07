@@ -82,7 +82,7 @@ class RoleController extends Controller
         $rolePermissions = Permission::join('role_has_permissions',
                                             'role_has_permissions.permission_id',
                                             '=',
-                                            'permission_id')->where('role_has_permission.role_id', $id)->get();
+                                            'permission_id')->where('role_has_permissions.role_id', $id)->get();
 
         return view('roles.show', compact('role', 'rolePermissions'));
     }
@@ -139,6 +139,6 @@ class RoleController extends Controller
     {
         DB::table('roles')->where('id', $id)->delete();
 
-        return redirect()->route('role.index')->with('success', 'Perfil apagado com sucesso');
+        return redirect()->route('roles.index')->with('success', 'Perfil apagado com sucesso');
     }
 }
