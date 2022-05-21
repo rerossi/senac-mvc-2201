@@ -5,10 +5,13 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Usuários</h2>
+            <h2>Clientes</h2>
         </div>
         <div class="pull-right">
+
+            @can('cliente-create')
             <a class="btn btn-success" href="{{ route('clients.create') }}"> + Novo Cliente</a>
+            @endcan
         </div>
     </div>
 </div>
@@ -45,7 +48,13 @@
     <td>{{ $cliente->endereco }}</td>
     <td>
         <a class="btn btn-info" href="{{ route('clients.show',$cliente->id) }}">Mostrar</a>
+
+        @can('cliente-edit')
         <a class="btn btn-primary" href="{{ route('clients.edit',$cliente->id) }}">Editar</a>
+
+        @endcan
+
+        @can('cliente-delete')
 
          {!! Form::open(['method' => 'DELETE','route' => ['clients.destroy', $cliente->id],'style'=>'display:inline']) !!}
 
@@ -53,7 +62,7 @@
 
          {!! Form::close() !!}
 
-
+        @endcan
 
     </td>
   </tr>
