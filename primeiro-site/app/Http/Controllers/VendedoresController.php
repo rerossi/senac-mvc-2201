@@ -111,4 +111,19 @@ class vendedoresController extends Controller
 
         return json_encode($ret);
     }
+
+    public function checkVendedor(int $id):bool
+    {
+
+        $vendedores = [ 1 => 'Rodrigo', 2 => 'Gustavo', 3 => 'Joao', 4 => 'Pedro'];
+
+        return array_key_exists($id, $vendedores);
+    }
+
+    public function getVendedor(int $id):string{
+
+        $vendedores = [ 1 => 'Rodrigo', 2 => 'Gustavo', 3 => 'Joao', 4 => 'Pedro'];
+
+        return $vendedores[$id];
+    }
 }
